@@ -1,0 +1,28 @@
+# Python:
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual env:
+venv/
+env/
+.Pipfile.lock
+
+# dotenv secrets:
+.env
+
+# IDE configs:
+.vscode/
+.idea/
+
+# OS files:
+.DS_Store
+Thumbs.db
+
+# Build/artifacts:
+dist/
+build/
+*.egg-info/
+
+# Optional vector index caches:
+vector.index*
