@@ -1,5 +1,9 @@
-playwright
+fastapi
+uvicorn[standard]
 redis
+requests
+beautifulsoup4
 python-dotenv
+sentence-transformers
+faiss-cpu
 google-generativeai
-
