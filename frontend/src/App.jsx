@@ -1,22 +1,10 @@
 import { useState } from 'react'
+import handleSubmit from './utils/handlesubmit.js';
 
 export default function App() {
   const [query, setQuery] = useState('')
   const [answer, setAnswer] = useState('')
   const [loading, setLoading] = useState(false)
-
-  const handleSubmit = async e => {
-    e.preventDefault()
-    setLoading(true)
-    const res = await fetch('http://localhost:8000/query', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text: query })
-    })
-    const data = await res.json()
-    setAnswer(data.answer)
-    setLoading(false)
-  }
 
   return (
     <div className="min-h-screen w-screen flex flex-col items-center justify-center bg-gradient-to-br from-indigo-50 to-cyan-100 px-4 py-8">
@@ -28,7 +16,7 @@ export default function App() {
           <p className="text-gray-500 mt-2">Get concise answers to your complex questions</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
+        <form onSubmit={(e) => handleSubmit(e, query, setLoading, setAnswer)} className="flex flex-col sm:flex-row gap-3">
           <input
             type="text"
             value={query}
